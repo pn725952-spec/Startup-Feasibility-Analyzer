@@ -10,13 +10,13 @@ from utils import (
     calculate_future_value,
     calculate_present_value,
     calculate_depreciation,
-    investment_decision,
+    investment_decision
 )
 
 from charts import (
     plot_profit_chart,
     plot_depreciation_chart,
-    plot_cost_pie_chart,
+    plot_cost_pie_chart
 )
 
 st.set_page_config(page_title="Startup Feasibility Analyzer", layout="wide")
@@ -29,9 +29,17 @@ st.sidebar.header("Project Inputs")
 
 project_name = st.sidebar.text_input(
     "Project Name",
-    value="Smart Irrigation System"
+    "Smart Irrigation System"
 )
 
 project_category = st.sidebar.selectbox(
     "Project Category",
+    ["IoT", "EV", "Manufacturing", "Software", "Agriculture", "Healthcare"]
+)
+
+initial_investment = st.sidebar.number_input(
+    "Initial Investment (₹)",
+    min_value=0,
+    value=500000
+)
 plot_cost_pie_chart(fixed_cost, variable_cost * units_sold)
